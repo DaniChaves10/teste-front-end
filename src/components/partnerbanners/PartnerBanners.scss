@@ -1,0 +1,82 @@
+
+.partner-banners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 260px;
+    padding: 32px;
+    overflow: hidden;
+    border-radius: 14px;
+
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.12)
+      ),
+      url('/images/banner-parceiros.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: 260px;
+    color: #fff;
+  }
+
+  h2 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 110px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background: #ffcc00;
+    color: #111;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #e6b800;
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    &__item {
+      min-height: 230px;
+      padding: 24px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+}

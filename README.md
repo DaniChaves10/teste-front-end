@@ -1,31 +1,119 @@
-# Teste Econverse: Vaga Desenvolvedor Front-End
+# Teste Técnico Front-End Jr | Econverse
 
-### Vem ser #Econverse!
+Projeto desenvolvido como parte do processo seletivo para a oportunidade de **Desenvolvedor Front-End Jr na Econverse**.
 
-Segue abaixo as instruções para a execução do teste.
+O objetivo foi implementar uma interface de e-commerce utilizando React, TypeScript e Sass, com base no layout disponibilizado no Figma, priorizando organização de código, componentização, responsividade e experiência do usuário.
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub.
-- Desenvolva a página conforme as **Especificações Técnicas** 
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail gustavo.cipriano@econverse.com.br com o título **Teste Vaga FrontEnd**
+## Tecnologias utilizadas
 
-## Especificações Técnicas
-- Desenvolver a pagina em React e TypeScript conforme o [layout](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1). Para conseguir pegar os elementos do Figma, basta copiar o layout para sua conta que terá acesso de edição.
-- Montar a [vitrine](https://app.econverse.com.br/teste-front-end/junior/tecnologia/layout/vitrine-produtos.png) de produtos consumindo as informações dos produtos em json atraves desse [Link](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json).
-- Desenvolver a interação ao clicar em um produto conforme layout. A interação consiste em abrir um modal com as principais informações do produto presente no arquivo [JSON](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json) conforme o produto que clicar.
-- Utilizar Pré-processador Sass, Less ou Stylus.
-- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
-- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
+- **React** — construção da interface com componentes reutilizáveis.
+- **TypeScript** — tipagem estática e maior segurança no desenvolvimento.
+- **Vite** — ambiente de desenvolvimento e build.
+- **Sass (SCSS)** — organização e estilização dos componentes.
+- **Lucide React** — biblioteca de ícones.
+- **HTML semântico** — estruturação do conteúdo e boas práticas de acessibilidade.
 
-## Pontos Extras
-- Utilizar Boas práticas de SEO
-- Uso de HTML semântico
+## Funcionalidades
 
-## O que avaliaremos em seu teste
-- Organização do projeto
-- Lógica do código
-- Componentização
-- Alcance dos objetivos propostos
+- Interface de e-commerce baseada no layout do Figma.
+- Cabeçalho com campo de busca e ícones de navegação.
+- Banner promocional.
+- Exibição de categorias de produtos.
+- Listagem de produtos com informações e preços.
+- Consumo de dados de produtos em formato JSON.
+- Navegação entre produtos.
+- Modal com informações do produto selecionado.
+- Controles para aumentar e diminuir a quantidade no modal.
+- Mensagem de confirmação simulada ao clicar em comprar.
+- Fechamento do modal pelo botão, pela tecla `Esc` ou ao clicar fora dele.
+- Seções de parceiros, marcas e produtos relacionados.
+- Formulário visual de newsletter e rodapé.
+- Layout responsivo para desktop e dispositivos móveis.
 
-**Boa sorte! ;)**
+> **Observação:** a confirmação de compra é uma simulação de interface. O projeto não realiza pagamentos nem possui integração com um carrinho real.
+
+## Layout de referência
+
+A interface foi desenvolvida com base no protótipo fornecido pela Econverse:
+
+[Figma — Teste Front-End Jr](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1)
+
+## Fonte dos produtos
+
+Os dados dos produtos são obtidos a partir do arquivo JSON disponibilizado para o teste:
+
+[API de produtos — Econverse](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json)
+
+## Como executar o projeto
+
+**Pré-requisito:** Node.js e npm instalados.
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/DaniChaves10/teste-front-end.git
+```
+
+### 2. Acesse a pasta do projeto
+
+```bash
+cd teste-front-end
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Inicie o servidor de desenvolvimento
+
+```bash
+npm run dev
+```
+
+A aplicação ficará disponível no endereço exibido pelo Vite, normalmente:
+
+`http://localhost:5173`
+
+### 5. Gere a versão de produção
+
+```bash
+npm run build
+```
+
+Para visualizar a versão de produção localmente:
+
+```bash
+npm run preview
+```
+
+## Responsividade
+
+O projeto utiliza media queries em SCSS para adaptar os componentes a diferentes tamanhos de tela.
+
+Foram considerados aspectos como:
+
+- Ajuste do cabeçalho e da navegação em telas menores.
+- Organização das categorias em dispositivos móveis.
+- Adaptação dos cards de produtos.
+- Reorganização dos elementos do modal para telas pequenas.
+- Ajuste das seções de marcas, newsletter e rodapé.
+
+## Organização do projeto
+
+O código foi dividido em componentes React, com arquivos de estilização SCSS específicos, buscando facilitar a manutenção e a reutilização.
+
+A aplicação utiliza TypeScript para definir as estruturas de dados dos produtos e as propriedades dos componentes.
+
+## Considerações finais
+
+O desenvolvimento deste teste proporcionou a oportunidade de aplicar conhecimentos de React, TypeScript, Sass, consumo de dados e construção de interfaces responsivas.
+
+O foco foi entregar uma aplicação organizada, funcional e alinhada à proposta visual disponibilizada, demonstrando boas práticas de desenvolvimento Front-End.
+
+---
+
+**Desenvolvido por Daniel Araujo Chaves**
+
+[GitHub](https://github.com/DaniChaves10) | [LinkedIn](https://www.linkedin.com/in/daniel-araujo10/)

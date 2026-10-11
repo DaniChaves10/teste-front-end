@@ -1,0 +1,73 @@
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 390px;
+  background-color: #17171c;
+  background-image:
+  linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.1) 75%
+  ),
+  url('/images/banner-black-friday.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+  }
+
+  h1 {
+    max-width: 500px;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 24px;
+    margin-bottom: 28px;
+
+    strong {
+      color: #f7c600;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    min-height: 46px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    background-color: #f7c600;
+    color: #171717;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #e5b600;
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: 320px;
+
+    h1 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
