@@ -4,6 +4,23 @@ Projeto desenvolvido como parte do processo seletivo para a oportunidade de **De
 
 O objetivo foi implementar uma interface de e-commerce utilizando React, TypeScript e Sass, com base no layout disponibilizado no Figma, priorizando organização de código, componentização, responsividade e experiência do usuário.
 
+## 🌐 Demonstração online
+
+O projeto está publicado na **Vercel** e pode ser acessado pelo link abaixo:
+
+**[Acessar aplicação — Teste Front-End Econverse](https://teste-front-end-eta-ten.vercel.app/)**
+
+A aplicação foi desenvolvida com React, TypeScript e Sass, seguindo o layout disponibilizado no Figma.
+
+### Funcionalidades implementadas
+
+- Layout responsivo para desktop e dispositivos móveis.
+- Listagem de produtos com dados obtidos de um arquivo JSON.
+- Carrossel de produtos com navegação.
+- Modal interativo com informações do produto selecionado.
+- Seleção de quantidade e feedback visual ao clicar em comprar.
+- Componentização com React e estilização utilizando Sass.
+
 ## Tecnologias utilizadas
 
 - **React** — construção da interface com componentes reutilizáveis.
