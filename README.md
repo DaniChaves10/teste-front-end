@@ -1,69 +1,60 @@
 # Teste Técnico Front-End Jr | Econverse
 
-Projeto desenvolvido como parte do processo seletivo para a oportunidade de **Desenvolvedor Front-End Jr na Econverse**.
+Projeto desenvolvido como parte do processo seletivo para a vaga de **Desenvolvedor Front-End Jr na Econverse**.
 
-O objetivo foi implementar uma interface de e-commerce utilizando React, TypeScript e Sass, com base no layout disponibilizado no Figma, priorizando organização de código, componentização, responsividade e experiência do usuário.
+O objetivo foi reproduzir uma interface de e-commerce a partir de um protótipo disponibilizado no Figma, utilizando **React, TypeScript e Sass**, com foco em componentização, responsividade, organização do código e experiência do usuário.
 
 ## 🌐 Demonstração online
 
-O projeto está publicado na **Vercel** e pode ser acessado pelo link abaixo:
-
 **[Acessar aplicação — Teste Front-End Econverse](https://teste-front-end-eta-ten.vercel.app/)**
 
-A aplicação foi desenvolvida com React, TypeScript e Sass, seguindo o layout disponibilizado no Figma.
+## 🛠️ Tecnologias utilizadas
 
-### Funcionalidades implementadas
-
-- Layout responsivo para desktop e dispositivos móveis.
-- Listagem de produtos com dados obtidos de um arquivo JSON.
-- Carrossel de produtos com navegação.
-- Modal interativo com informações do produto selecionado.
-- Seleção de quantidade e feedback visual ao clicar em comprar.
-- Componentização com React e estilização utilizando Sass.
-
-## Tecnologias utilizadas
-
-- **React** — construção da interface com componentes reutilizáveis.
-- **TypeScript** — tipagem estática e maior segurança no desenvolvimento.
-- **Vite** — ambiente de desenvolvimento e build.
-- **Sass (SCSS)** — organização e estilização dos componentes.
+- **React** — desenvolvimento da interface com componentes reutilizáveis.
+- **TypeScript** — tipagem estática de componentes e dados.
+- **Vite** — ambiente de desenvolvimento e geração da versão de produção.
+- **Sass (SCSS)** — estilização e organização dos estilos.
 - **Lucide React** — biblioteca de ícones.
 - **HTML semântico** — estruturação do conteúdo e boas práticas de acessibilidade.
 
-## Funcionalidades
+## ✨ Funcionalidades
 
-- Interface de e-commerce baseada no layout do Figma.
+- Interface de e-commerce baseada no protótipo do Figma.
+- Layout responsivo para desktop, tablets e dispositivos móveis.
 - Cabeçalho com campo de busca e ícones de navegação.
-- Banner promocional.
-- Exibição de categorias de produtos.
-- Listagem de produtos com informações e preços.
-- Consumo de dados de produtos em formato JSON.
-- Navegação entre produtos.
-- Modal com informações do produto selecionado.
-- Controles para aumentar e diminuir a quantidade no modal.
-- Mensagem de confirmação simulada ao clicar em comprar.
+- Banner promocional e exibição de categorias.
+- Listagem dinâmica de produtos utilizando dados JSON.
+- Carrossel de produtos com controles de navegação.
+- Modal com imagem, nome, descrição e preço do produto selecionado.
+- Seleção de quantidade com controles de incremento e decremento.
+- Feedback visual de adição simulada ao carrinho.
 - Fechamento do modal pelo botão, pela tecla `Esc` ou ao clicar fora dele.
-- Seções de parceiros, marcas e produtos relacionados.
-- Formulário visual de newsletter e rodapé.
-- Layout responsivo para desktop e dispositivos móveis.
+- Controle de foco e bloqueio da rolagem da página enquanto o modal está aberto.
+- Seções de parceiros, marcas, newsletter e rodapé.
 
-> **Observação:** a confirmação de compra é uma simulação de interface. O projeto não realiza pagamentos nem possui integração com um carrinho real.
+**Observação:** a compra é simulada e não realiza pagamentos nem atualiza um carrinho persistente. Alguns elementos, como busca, abas de categorias e newsletter, foram implementados para reprodução visual do layout.
 
-## Layout de referência
+## 🎨 Layout de referência
 
-A interface foi desenvolvida com base no protótipo fornecido pela Econverse:
+A interface foi desenvolvida com base no protótipo disponibilizado pela Econverse:
 
 [Figma — Teste Front-End Jr](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1)
 
-## Fonte dos produtos
+## 📦 Fonte dos produtos
 
-Os dados dos produtos são obtidos a partir do arquivo JSON disponibilizado para o teste:
+Os produtos são carregados a partir de uma cópia local do arquivo JSON oficial, localizada em:
 
-[API de produtos — Econverse](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json)
+`public/data/produtos.json`
 
-## Como executar o projeto
+Fonte original:
 
-**Pré-requisito:** Node.js e npm instalados.
+[JSON de produtos — Econverse](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json)
+
+A utilização do arquivo local permite executar a aplicação sem depender da disponibilidade do servidor externo.
+
+## 🚀 Como executar o projeto
+
+**Pré-requisitos:** Node.js e npm instalados.
 
 ### 1. Clone o repositório
 
@@ -89,7 +80,7 @@ npm install
 npm run dev
 ```
 
-A aplicação ficará disponível no endereço exibido pelo Vite, normalmente:
+A aplicação ficará disponível no endereço informado pelo Vite, normalmente:
 
 `http://localhost:5173`
 
@@ -105,32 +96,46 @@ Para visualizar a versão de produção localmente:
 npm run preview
 ```
 
-## Responsividade
+## 📱 Responsividade
 
-O projeto utiliza media queries em SCSS para adaptar os componentes a diferentes tamanhos de tela.
+A interface utiliza media queries em SCSS para adaptar os componentes a diferentes tamanhos de tela.
 
-Foram considerados aspectos como:
+Entre as adaptações implementadas estão:
 
-- Ajuste do cabeçalho e da navegação em telas menores.
-- Organização das categorias em dispositivos móveis.
-- Adaptação dos cards de produtos.
-- Reorganização dos elementos do modal para telas pequenas.
-- Ajuste das seções de marcas, newsletter e rodapé.
+- Reorganização do cabeçalho e da barra de pesquisa.
+- Navegação horizontal em telas menores.
+- Ajuste da disposição das categorias.
+- Carrossel com quantidade de produtos visíveis adaptada à largura da tela.
+- Reorganização do modal para dispositivos móveis.
+- Adaptação das seções de conteúdo e do rodapé.
 
-## Organização do projeto
+## 📂 Organização do projeto
 
-O código foi dividido em componentes React, com arquivos de estilização SCSS específicos, buscando facilitar a manutenção e a reutilização.
+O projeto foi estruturado em componentes React reutilizáveis, com arquivos SCSS específicos para cada seção.
 
-A aplicação utiliza TypeScript para definir as estruturas de dados dos produtos e as propriedades dos componentes.
+Também foram utilizados diretórios para organizar:
 
-## Considerações finais
+- Componentes da interface.
+- Serviços de carregamento de dados.
+- Tipagens TypeScript.
+- Estilos globais.
+- Imagens e demais recursos estáticos.
 
-O desenvolvimento deste teste proporcionou a oportunidade de aplicar conhecimentos de React, TypeScript, Sass, consumo de dados e construção de interfaces responsivas.
+Essa organização facilita a manutenção e a evolução da aplicação.
 
-O foco foi entregar uma aplicação organizada, funcional e alinhada à proposta visual disponibilizada, demonstrando boas práticas de desenvolvimento Front-End.
+## ♿ Acessibilidade
 
----
+Foram adotadas práticas como:
 
-**Desenvolvido por Daniel Araujo Chaves**
+- Uso de elementos HTML semânticos.
+- Textos alternativos para imagens.
+- Identificação acessível de botões.
+- Fechamento do modal pelo teclado.
+- Gerenciamento de foco no modal.
+- Feedback de ações por meio de mensagens de status.
+
+## 👨‍💻 Desenvolvedor
+
+**Daniel Araujo Chaves**
 
 [GitHub](https://github.com/DaniChaves10) | [LinkedIn](https://www.linkedin.com/in/daniel-araujo10/)

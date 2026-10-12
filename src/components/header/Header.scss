@@ -19,9 +19,11 @@
     span {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 5px;
-      font-size: 12px;
       color: #777;
+      font-size: 12px;
+      white-space: nowrap;
     }
 
     strong {
@@ -40,24 +42,25 @@
   &__logo {
     display: inline-flex;
     align-items: center;
-    text-decoration: none;
+    flex-shrink: 0;
     color: #272044;
     font-size: 25px;
     font-weight: 700;
     letter-spacing: -1px;
+    text-decoration: none;
     white-space: nowrap;
   }
 
   &__logo-symbol {
     width: 35px;
     height: 35px;
-    background: #f9c900;
-    color: #fff;
-    border-radius: 50%;
     display: grid;
     place-items: center;
-    font-weight: 800;
     margin-right: -4px;
+    border-radius: 50%;
+    background: #f9c900;
+    color: #fff;
+    font-weight: 800;
   }
 
   &__search {
@@ -66,102 +69,153 @@
     height: 44px;
     display: flex;
     align-items: center;
+    min-width: 0;
     background: #f6f6f6;
     border-radius: 6px;
 
     input {
       width: 100%;
+      min-width: 0;
       height: 100%;
+      padding: 0 16px;
       border: none;
       outline: none;
       background: transparent;
-      padding: 0 16px;
       font-size: 13px;
     }
 
     button {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      padding: 12px;
       border: none;
       background: transparent;
       color: #777;
-      padding: 12px;
+      cursor: pointer;
     }
   }
 
   &__actions {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     gap: 18px;
 
     button {
       display: grid;
       place-items: center;
-      background: none;
+      padding: 4px;
       border: none;
+      background: transparent;
       color: #777;
+      cursor: pointer;
 
       &:hover {
         color: $color-primary;
       }
-    }
-  }
 
-  &__nav {
-    border-top: 1px solid #f2f2f2;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 4%);
-  }
-
-  &__nav-content {
-    min-height: 42px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-
-    a {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #777;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-
-      &:hover {
-        color: $color-primary;
+      &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 3px;
       }
     }
   }
 
-  &__nav-highlight {
-    color: $color-primary !important;
-  }
-
-  @media (max-width: 768px) {
-    &__benefits-content {
-      flex-wrap: wrap;
-      padding-block: 8px;
-    }
-
+  @media (max-width: 900px) {
     &__main {
       flex-wrap: wrap;
-      gap: 16px;
-      padding-block: 16px;
+      column-gap: 16px;
+      row-gap: 14px;
+      padding-top: 14px;
+      padding-bottom: 14px;
     }
 
     &__search {
       order: 3;
-      flex-basis: 100%;
+      flex: 0 0 100%;
       max-width: none;
     }
 
-    &__nav-content {
-      overflow-x: auto;
-      justify-content: flex-start;
-      padding-block: 12px;
+    &__benefits-content {
+      gap: 10px;
 
-      a {
-        white-space: nowrap;
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__benefits-content {
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 12px;
+      row-gap: 5px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+
+      span {
+        font-size: 10px;
+      }
+
+      svg {
+        width: 13px;
+        height: 13px;
+      }
+    }
+
+    &__main {
+      min-height: auto;
+      column-gap: 8px;
+      row-gap: 12px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    &__logo {
+      font-size: 21px;
+    }
+
+    &__logo-symbol {
+      width: 30px;
+      height: 30px;
+    }
+
+    &__actions {
+      gap: 3px;
+
+      button {
+        padding: 4px;
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    &__search {
+      height: 42px;
+
+      input {
+        padding: 0 12px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    &__logo {
+      font-size: 19px;
+    }
+
+    &__actions {
+      gap: 0;
+
+      svg {
+        width: 17px;
+        height: 17px;
       }
     }
   }

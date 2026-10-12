@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { X, Minus, Plus } from 'lucide-react';
 import type { Product } from '../../types/Product';
 import './ProductModal.scss';
@@ -14,17 +14,48 @@ export default function ProductModal({
   onClose,
 }: ProductModalProps) {
   const [quantity, setQuantity] = useState(1);
+  const [addedQuantity, setAddedQuantity] = useState<number | null>(null);
 
-  const [addedToCart, setAddedToCart] = useState(false);
+  const modalRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   function handleBuy() {
-    setAddedToCart(true);
+    setAddedQuantity(quantity);
   }
 
   useEffect(() => {
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
         onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !modalRef.current) {
+        return;
+      }
+
+      const focusableElements =
+        modalRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+
+      const first = focusableElements[0];
+      const last = focusableElements[focusableElements.length - 1];
+
+      if (!first || !last) return;
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     }
 
@@ -32,6 +63,8 @@ export default function ProductModal({
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
     };
   }, [onClose]);
 
@@ -50,12 +83,14 @@ export default function ProductModal({
       }}
     >
       <section
+        ref={modalRef}
         className="product-modal"
         role="dialog"
         aria-modal="true"
         aria-labelledby="product-modal-title"
       >
         <button
+          ref={closeButtonRef}
           type="button"
           className="product-modal__close"
           onClick={onClose}
@@ -65,11 +100,16 @@ export default function ProductModal({
         </button>
 
         <div className="product-modal__image">
-          <img src={product.photo} alt={product.productName} />
+          <img
+            src={product.photo}
+            alt={product.productName}
+          />
         </div>
 
         <div className="product-modal__details">
-          <h2 id="product-modal-title">{product.productName}</h2>
+          <h2 id="product-modal-title">
+            {product.productName}
+          </h2>
 
           <strong className="product-modal__price">
             {formattedPrice}
@@ -81,27 +121,34 @@ export default function ProductModal({
             Veja mais detalhes do produto
           </span>
 
-          {addedToCart && (
-          <p className="product-modal__success" role="status">
-            {quantity} unidade(s) de {product.productName} adicionada(s) ao carrinho!
-          </p>
-        )}
+          {addedQuantity !== null && (
+            <p className="product-modal__success" role="status">
+              {addedQuantity} unidade(s) de {product.productName}
+              {' '}adicionada(s) ao carrinho!
+            </p>
+          )}
 
-        <div className="product-modal__actions">
+          <div className="product-modal__actions">
             <div className="product-modal__quantity">
               <button
                 type="button"
-                onClick={() => setQuantity((value) => Math.max(1, value - 1))}
+                onClick={() => {
+                  setQuantity((value) => Math.max(1, value - 1));
+                  setAddedQuantity(null);
+                }}
                 aria-label="Diminuir quantidade"
               >
                 <Minus size={14} />
               </button>
 
-              <span>{quantity}</span>
+              <span aria-live="polite">{quantity}</span>
 
               <button
                 type="button"
-                onClick={() => setQuantity((value) => value + 1)}
+                onClick={() => {
+                  setQuantity((value) => value + 1);
+                  setAddedQuantity(null);
+                }}
                 aria-label="Aumentar quantidade"
               >
                 <Plus size={14} />
@@ -113,7 +160,7 @@ export default function ProductModal({
               className="product-modal__buy"
               onClick={handleBuy}
             >
-              {addedToCart ? 'ADICIONADO!' : 'COMPRAR'}
+              {addedQuantity !== null ? 'ADICIONADO!' : 'COMPRAR'}
             </button>
           </div>
         </div>

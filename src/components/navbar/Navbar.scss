@@ -1,7 +1,9 @@
 
 .navbar {
+  width: 100%;
   background: #fff;
   border-top: 1px solid #f2f2f2;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 4%);
 
   &__content {
     display: flex;
@@ -12,18 +14,25 @@
   }
 
   a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
     color: #777;
     font-size: 12px;
     font-weight: 600;
     text-decoration: none;
+    text-transform: uppercase;
     white-space: nowrap;
+    transition: color 0.2s ease;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: #3442b5;
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     &__content {
       justify-content: flex-start;
       gap: 24px;
@@ -36,19 +45,16 @@
         display: none;
       }
     }
-
-    a {
-      flex-shrink: 0;
-    }
   }
 
   @media (max-width: 767px) {
     &__content {
-      min-height: 44px;
-      gap: 20px;
+      min-height: 46px;
+      gap: 24px;
     }
 
     a {
+      min-height: 44px;
       font-size: 11px;
     }
   }

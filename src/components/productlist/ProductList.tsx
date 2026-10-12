@@ -34,6 +34,35 @@ export default function ProductList({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('CELULAR');
 
+  const [visibleCount, setVisibleCount] = useState(() => {
+  if (typeof window === 'undefined') return 4;
+
+  if (window.innerWidth <= 480) return 1;
+  if (window.innerWidth <= 900) return 2;
+
+  return 4;
+});
+
+  useEffect(() => {
+    function updateVisibleCount() {
+      if (window.innerWidth <= 480) {
+        setVisibleCount(1);
+      } else if (window.innerWidth <= 900) {
+        setVisibleCount(2);
+      } else {
+        setVisibleCount(4);
+      }
+    }
+
+    updateVisibleCount();
+
+    window.addEventListener('resize', updateVisibleCount);
+
+    return () => {
+      window.removeEventListener('resize', updateVisibleCount);
+    };
+  }, []);
+
   useEffect(() => {
     async function loadProducts() {
       try {
@@ -50,8 +79,11 @@ export default function ProductList({
     loadProducts();
   }, []);
 
-  const visibleCount = 4;
   const maxIndex = Math.max(0, products.length - visibleCount);
+
+  useEffect(() => {
+  setCurrentIndex((index) => Math.min(index, maxIndex));
+  }, [maxIndex]);
 
   const visibleProducts = products.slice(
     currentIndex,
@@ -102,7 +134,11 @@ export default function ProductList({
       {loading && <p>Carregando produtos...</p>}
       {error && <p role="alert">{error}</p>}
 
-      {!loading && !error && (
+      {!loading && !error && products.length === 0 && (
+        <p>Nenhum produto disponível no momento.</p>
+      )}
+
+      {!loading && !error && products.length > 0 && (
         <div className="product-list__carousel">
           <button
             type="button"
